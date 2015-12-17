@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { NICE, SUPER_NICE } from './colors';
+
+const styles = cssInJS({
+  nice: {
+    color: 'pink'
+  },
+  superNice: {
+    color: 'darkred'
+  }
+});
 
 class Counter extends Component {
   constructor(props) {
@@ -20,7 +28,7 @@ class Counter extends Component {
 
   render() {
     return (
-      <h1 style={{ color: this.props.color }}>
+      <h1 className={styles[this.props.color]}>
         Counter ({this.props.increment}): {this.state.counter}
       </h1>
     );
@@ -31,8 +39,8 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Counter increment={1} color={NICE} />
-        <Counter increment={5} color={SUPER_NICE} />
+        <Counter increment={1} color="nice" />
+        <Counter increment={5} color="superNice" />
       </div>
     );
   }
